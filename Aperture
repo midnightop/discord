@@ -1,0 +1,156 @@
+
+Configurations
+This bot is highly configurable and with that we would like to provide a full template for you to see and expand upon to make it fit your server's needs.
+
+Full Config Example
+web:
+  104376018222972928: admin # Justin#1337
+  153705865969401856: admin # Red#1337
+  142721776458137600: editor # Nadie#0063
+  322301296394764291: viewer # Newbs#1337
+
+commands:
+  prefix: '!'
+  overrides:
+  - {plugin.name: 'utilities', out: {level: 10}}
+  - {group: 'clean', out: {level: 40}}
+  - {name: 'mute', out: {level: 40}}
+
+nickname: Aperture
+
+levels:
+  #===============================================================
+  # Use the "roles" command in order to get the IDs you put in here
+  #===============================================================
+  104376018222972928: 100 # Justin#1337 (User Permission Override)
+  000000000000000000: 100 # Administrators
+  000000000000000000: 50  # Moderators
+  000000000000000000: 10  # Trusted
+
+
+plugins:
+
+  utilities:
+  auto_role: [00000000000000, 00000000000000]
+  react_roles:
+      000000000000000000: # ID of the message you wish to use.
+          emotes:
+              000000000000000000: #ID of the emote (Currently Custom Only)
+                  role: 00000000000000 #ID of the role to be given/removed on reaction add/remove
+
+  admin:
+    #===============================================================
+    # Use the "roles" command in order to get the IDs you put in here
+    #===============================================================
+    persist:
+      roles: true
+      role_ids: [000000000000000000, 000000000000000000, 000000000000000000]
+      nickname: true
+      voice: false
+    role_aliases:
+      role1: 000000000000000000
+      role2: 000000000000000000
+    group_roles:
+      PC: 000000000000000000
+      Console: 000000000000000000
+      Tabletop: 000000000000000000
+    locked_roles: [000000000000000000, 000000000000000000]
+
+  infractions:
+    confirm_actions: true
+    confirm_actions_reaction: false
+    confirm_actions_expiry: 0
+    mute_role: 000000000000000000
+    reason_edit_level: 100
+    notify_actions: [WARN, KICK, BAN, TEMPBAN, SOFTBAN, UNMUTE, MUTE, TEMPMUTE]
+    show_moderator: false
+    silence_level: 100
+
+  starboard:
+    channels:
+      000000000000000000:
+        clear_on_delete: true
+        min_stars: 6
+        star_color_max: 15
+        prevent_self_star: true
+        sources: [000000000000000000]
+        ignored_channels: [000000000000000000]
+
+  reddit:
+    subs:
+      discordapp: 
+        channel: 000000000000000000
+        mode: pretty
+        nsfw: false
+        include_stats: true
+        text_length: 256
+
+  modlog:
+    channels:
+      000000000000000000: 
+        exclude: []
+        include: []
+        timestamps: true
+        compact: true
+        timezone: US/Eastern
+      000000000000000000:
+        exclude: []
+        include: []
+        timestamps: true
+        compact: true
+        timezone: US/Eastern
+    ignored_users: []
+    ignored_channels: []
+
+  spam:
+    levels:
+      0:
+        punishment: TEMPMUTE
+        punishment_duration: 600
+        clean: true
+        max_messages:
+          count: 7
+          interval: 10
+          clean: true
+        max_mentions:
+          count: 5
+          interval: 10
+          clean: true
+        max_links:
+          count: 5
+          interval: 30
+          clean: true
+        max_emojis:
+          count: 10
+          interval: 60
+          clean: true
+        max_newlines:
+          count: 60
+          interval: 120
+          clean: true
+        max_duplicates:
+          count: 5
+          interval: 20
+          clean: true
+        max_capitals:
+          count: 50
+          interval: 120
+          clean: true
+    ignored_channels: [000000000000000000]
+
+  censor:
+    levels:
+      0:
+        filter_zalgo: true
+        filter_invites: true
+        invites_guild_whitelist: [169256939211980800, 324806970538459139]
+        invites_whitelist: ['discord-developers', 'discord-testers', 'discord-api', 'events', 'discord-linux', 'gamenight', 'discord-feedback']
+#        invites_blacklist: []
+        filter_domains: true
+#        domains_whitelist: []
+        domains_blacklist: ['website.net']
+        blocked_tokens: ['token1', 'token2']
+        blocked_words: ['word1', 'word2', 'word3']
+    channels:
+      290923757399310337:
+        blocked_words: ['word4']
