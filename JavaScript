@@ -1,0 +1,7 @@
+# discord
+JavaScript
+
+{
+"prefix": "!",
+"token": "your-token"
+}
